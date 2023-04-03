@@ -1,315 +1,53 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
-
-.App {
-    display: grid;
-    height: 100vh;
-    color: white;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: .2fr 1fr 1fr;
-    grid-column-gap: 4px;
-    grid-row-gap: 4px;
-    /* padding: 10px; */
-    background-image: url("https://assets.wallpapersin4k.org/uploads/2017/04/Beautiful-Weather-Wallpapers-23.jpg");
-    background-size: cover;
-    background-position: center;
-    font-family: 'Quicksand';
-    }
-.Error {
-    grid-area: 1 / 1 / 2 / 4;
-    text-align: center;
+.sidebar {
+  display: flex;
+  flex-direction: row;
 }
-.Icon{
-    width: 100px;
+.date {
+  width: 200px;
+  height: 200px;
+  margin: 100px;
+  border-radius: 50px;
+  background: linear-gradient(145deg, #ffffff, #dddddd);
+  box-shadow: 23px 23px 52px #626262, -23px -23px 52px #ffffff;
 }
-.Sidebar { 
-    display: grid;
-    grid-area: 2 / 1 / 4 / 2;
-    place-items: center;
-    line-height: 50px;
-    background-color: rgb(28, 156, 246, 0.4);
-    opacity: 1;
-    border-radius: 10px;
-    text-align: center;
-    margin: 10%;
-    height: 80%;
+.today {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 }
-.Date{
-    font-size: 175%;
+.condition {
+  width: 250px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 68px;
+  background: #f5f5f5;
+  box-shadow: inset 5px 5px 3px #b8b8b8, inset -5px -5px 3px #ffffff;
+}
+.curr-temp-div {
+  width: 200px;
+  height: 200px;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 7px 7px 23px #999999, -7px -7px 23px #ffffff;
+}
+.feelsLike{
     display: flex;
-    justify-content: center;
-    align-self: flex-start;
-    top: 0;
+    flex-direction: column;
 }
-.ForecastContainer { 
-    display: grid;
-    grid-area: 2 / 2 / 3 / 4;
-    background-color: rgb(255, 250, 224, .4);
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: .2fr repeat(2, 1fr);
-    grid-column-gap: 4px;
-    grid-row-gap: 4px;
-    border-radius: 10px;
-    margin: 3%;
+.feels-like-title{
+text-align: center;
 }
-
-.ForecastHeader {
-    display: flex;
-    grid-area: 1 / 1 / 2 / 4;
-    justify-content: center;
-}
-
-.day1, .day2, .day3, .day4, .day5, .day6 {
-    display: grid;
-    background-color: rgb(255, 205, 0, .8);
-    place-items: center;
-    text-align: center;
-    border-radius: 10px;
-    margin: 10px;
-}
-.day1 { 
-    grid-area: 2 / 1 / 3 / 2; 
-}
-
-.day2 { 
-    grid-area: 2 / 2 / 3 / 3; 
-}
-
-.day3 { 
-    grid-area: 2 / 3 / 3 / 4; 
-}
-
-.day4 { 
-    grid-area: 3 / 3 / 4 / 4;
-}
-    
-.day5 { 
-    grid-area: 3 / 2 / 4 / 3; 
-}
-    
-.day6 { 
-    grid-area: 3 / 1 / 4 / 2; 
-}
-
-.Weathercode{
-    font-size: 22px;
-}
-.Wind { 
-    display: grid;
-    grid-area: 3 / 2 / 4 / 3;
-    place-items: center;
-    background-color: rgb(29, 113, 242, .5);
-    text-align: center;
-    border-radius: 10px;
-    margin: 10%;
-    height: 65%;
-}
-
-.Sun { 
-    display: grid;
-    grid-area: 3 / 3 / 4 / 4;
-    margin: 0;
-    margin: 10%;
-    height: 65%;
-}
-
-.Sunrise {
-    display: grid;
-    height: 475px;
-    place-items: center;
-    background-color: rgb(255, 127, 80, .5);
-    border-radius: 10px;
-    height: 100%;
-}
-
-.Sunset {
-    display: grid;
-    height: 475px;
-    place-items: center;
-    background-color: rgb(147, 112, 216, .5);
-    border-radius: 10px;
-    height: 100%;
-}
-
-.ForecastTitle{
-    text-align: center;
-    font-size: 60px;
-    margin: 5px;
-}
-
-.ExtendedCast {
-    grid-area: 2 / 2 / 3 / 4;
-    display: grid, flex;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(7, 1fr);
-    grid-column-gap: 10px;
-    grid-row-gap: 10px;
-    width: 80vw;
-    background-size: cover;
-    align-items: center;
-    margin-right: 150px;
-}
-
-.Cast1, .Cast2, .Cast3, .Cast4, .Cast5, .Cast6, .Cast0 {
-    color: black;
-    background-color: rgba(248, 247, 243, 0.8);
-    place-items: center;
-    text-align: center;
-    border-radius: 10px;
-    display: flex;
-    margin: 10px;
-    justify-content: space-between;
-    padding: 0 10px 0 10px;
-}
-
-h3{
-    flex-wrap: nowrap;
-}
-.Cast0 { 
-    grid-area: 1 / 1 / 2 / 2;
-    margin-top: 0;
-}
-
-.Cast1 { 
-    grid-area: 2 / 1 / 3 / 2; 
-}
-
-.Cast2 { 
-    grid-area: 3 / 1 / 4 / 2; 
-}
-
-.Cast3{ 
-    grid-area: 4 / 1 / 5 / 2;
-}
-    
-.Cast4 { 
-    grid-area: 5 / 1 / 6 / 2; 
-}
-    
-.Cast5 { 
-    grid-area: 6 / 1 / 7 / 2;  
-}
-
-.Cast6 { 
-    grid-area:  7 / 1 / 8 / 2; 
-}
-.HomepageButton{
-    background-color: rgb(255, 205, 0);
-    width: 170px;
-    border-radius: 10px;
-    font-size: 15px;
-    padding: 5px;
-}
-
-.HomepageButton:hover{
-    background-color: rgb(118, 168, 244);
-}
-
-@media (max-width: 800px){
-
-h1{
-        font-size: 25px;
-    }
-    
-    h2{
-        font-size: 15px;
-    }
-    
-.App{
-    display: grid;
-    background-size: cover;
-    background-position: center;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: .2fr 1fr 1fr;
-    grid-column-gap: 4px;
-    grid-row-gap: 4px;
-    padding: 0px;
-}
-
-.Date{
-    width: 120px;
-    font-size: 25px;
-}
-
-.Sidebar{
-    width: 114px;
-    line-height: 25px;
-    height: 520px;
-}
-
-.ForecastContainer{
-    grid-column-gap: 1px;
-    grid-row-gap: 1px;
-    padding: 7px;
-}
-
-.TitleOnForecast{
-    font-size: 16px;
-    width: 30px;
-}
-
-.day1, .day2, .day3, .day4, .day5, .day6 {
-    width: 30px;
-    margin: 10px;
-    padding-left: 10px;
-    padding-right: 15px;
-}
-
-.Wind{
-    height: 200px;
-}
-
-.WindWords{
-    font-size: 16px;
-}
-.Icon{
-    width: 50px;
-}
-h3{
-    font-size: 12px;
-}
-.Sunrise {
-    display: grid;
-    height: 200px;
-    place-items: center;
-}
-
-.Sunset {
-    display: grid;
-    height: 200px;
-    place-items: center;
-}
-
-.SunWords{
-    font-size: 16px;
-}
-
-.SunTime{
-    font-size: 10px;
-}
-
-.Cast1, .Cast2, .Cast3, .Cast4, .Cast5, .Cast6, .Cast0 {
-    place-items: center;
-    text-align: center;
-    display: flex;
-    margin: 10px;
-    justify-content: space-between;
-    padding-left: 10px;
-    padding-right: 10px;
-    font-size: 12px;
-    width: 330px;
-    height: 60px;
-}
-
-.ForecastTitle{
-    font-size: 30px;
-    width: 375px;
-}
-
-.Homepage{
-    width: 90px;
-    font-size: 9px;
-}
-.Weathercode{
-    font-size: 12px;
-}
+.feels-like-int {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: inset 5px 5px 10px #666666, inset -5px -5px 10px #ffffff;
 }

@@ -10,9 +10,9 @@ const Wind = ({weatherData}) => {
     return (
       <div className="Wind">
         <div>
-          <h2 className="WindWords">Wind:</h2> 
-            <img src={wind} alt="windIcon" className='Icon'/>
-            <h2 className="WindWords">{windHashmap.get(weatherData.current_weather.winddirection)} at {weatherData.current_weather.windspeed}mph</h2>
+          <div className="WindWords">Wind:</div> 
+            {/* <img src={wind} alt="windIcon" className='Icon'/> */}
+            <div className="WindWords">{windHashmap.get(weatherData.current_weather.winddirection)} at {weatherData.current_weather.windspeed}mph</div>
         </div>
       </div> 
     )

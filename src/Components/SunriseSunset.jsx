@@ -12,19 +12,17 @@ const SunriseSunset = ({weatherData}) => {
     if(weatherData.daily){
         return (
             <div className="Sun">
-                <div onMouseEnter={toggle} onMouseLeave={toggle} className="toggle">
-                    {state ? 
+                <div  className="toggle">
+        
                     <div className="Sunset">
-                        <h2 className="SunWords">Sunset</h2> 
-                        <img src={moon} alt="moonIcon" className='Icon'/>
-                        <h2 className="SunTime">{weatherData.daily.sunset[0]}</h2>
-                    </div> : 
+                        <div className="SunWords">Sunset</div> 
+                        <div className="SunTime">{weatherData.daily.sunset[0]}</div>
+                    </div> 
                     <div className="Sunrise">
-                        <h2 className="SunWords">Sunrise: </h2> 
-                        <img src={sun} alt="sunIcon" className='Icon'/>
-                        <h2 className="SunTime">{weatherData.daily.sunrise[0]}</h2>
+                        <div className="SunWords">Sunrise: </div> 
+                        <div className="SunTime">{weatherData.daily.sunrise[0]}</div>
                     </div>
-                    }
+                    
                 </div>
             </div> 
         )

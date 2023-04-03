@@ -40,32 +40,32 @@ const WeeklyForecast = ({weatherData}) => {
             <div className="ForecastContainer">
                 <Link to={`/weekly`} className="ForecastHeader">
                     <div className="ForecastHeader">
-                        <h2 className="TitleOnForecast">Weekly Forecast</h2>
+                        <div className="TitleOnForecast">Weekly Forecast</div>
                     </div>
                 </Link>
                 <div className="day1">
-                    <h3>{weatherData.daily.time[1]}:<br />
-                    <span className="Weathercode">{weatherCodeHashmap.get(weatherData.daily.weathercode[1])}</span></h3>
+                    <div>{weatherData.daily.time[1]}:<br />
+                    <span className="Weathercode">{weatherCodeHashmap.get(weatherData.daily.weathercode[1])}</span></div>
                 </div>
                 <div className="day2">
-                    <h3>{weatherData.daily.time[2]}:<br />
-                    <span className="Weathercode">{weatherCodeHashmap.get(weatherData.daily.weathercode[2])}</span></h3>
+                    <div>{weatherData.daily.time[2]}:<br />
+                    <span className="Weathercode">{weatherCodeHashmap.get(weatherData.daily.weathercode[2])}</span></div>
                 </div>
                 <div className="day3">
-                    <h3>{weatherData.daily.time[3]}:<br />
-                    <span className="Weathercode">{weatherCodeHashmap.get(weatherData.daily.weathercode[3])}</span></h3>
+                    <div>{weatherData.daily.time[3]}:<br />
+                    <span className="Weathercode">{weatherCodeHashmap.get(weatherData.daily.weathercode[3])}</span></div>
                 </div>
                 <div className="day4">
-                    <h3>{weatherData.daily.time[4]}:<br />
-                    <span className="Weathercode">{weatherCodeHashmap.get(weatherData.daily.weathercode[4])}</span></h3>
+                    <div>{weatherData.daily.time[4]}:<br />
+                    <span className="Weathercode">{weatherCodeHashmap.get(weatherData.daily.weathercode[4])}</span></div>
                 </div>
                 <div className="day5">
-                    <h3>{weatherData.daily.time[5]}:<br />
-                    <span className="Weathercode">{weatherCodeHashmap.get(weatherData.daily.weathercode[5])}</span></h3>
+                    <div>{weatherData.daily.time[5]}:<br />
+                    <span className="Weathercode">{weatherCodeHashmap.get(weatherData.daily.weathercode[5])}</span></div>
                 </div>
                 <div className="day6">
-                    <h3>{weatherData.daily.time[6]}:<br />
-                    <span className="Weathercode">{weatherCodeHashmap.get(weatherData.daily.weathercode[6])}</span></h3>
+                    <div>{weatherData.daily.time[6]}:<br />
+                    <span className="Weathercode">{weatherCodeHashmap.get(weatherData.daily.weathercode[6])}</span></div>
                 </div>
             </div>
         )

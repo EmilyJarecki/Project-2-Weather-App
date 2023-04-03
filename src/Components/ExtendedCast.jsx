@@ -44,7 +44,7 @@ const ExtendedCast = ({weatherData}) => {
             <div className="ExtendedCast">
                 <h1 className="ForecastTitle">7 Day Forecast</h1>
                 <div className="Cast0"> 
-                    <h3>{weatherData.daily.time[0]}</h3>
+                    <div>{weatherData.daily.time[0]}</div>
                     <h4>{weatherCodeHashmap.get(weatherData.daily.weathercode[0])}</h4>
                     <h4>High: {weatherData.daily.temperature_2m_max[0]}°F  <br/>Low: {weatherData.daily.temperature_2m_min[0]}°F</h4>
                     <h4>🌅 Sunrise:<br /> {weatherData.daily.sunrise[0]}</h4>
@@ -52,7 +52,7 @@ const ExtendedCast = ({weatherData}) => {
                     <h4>🍃 Wind: <br /> {windHashmap.get(weatherData.daily.winddirection_10m_dominant[0])} at {weatherData.daily.windspeed_10m_max[0]}mph</h4>
                 </div>
                 <div className="Cast1">
-                    <h3>{weatherData.daily.time[1]}</h3>
+                    <div>{weatherData.daily.time[1]}</div>
                     <h4>{weatherCodeHashmap.get(weatherData.daily.weathercode[1])}</h4>
                     <h4>High: {weatherData.daily.temperature_2m_max[1]}°F <br/>Low: {weatherData.daily.temperature_2m_min[1]}°F</h4>
                     <h4>🌅 Sunrise:<br />  {weatherData.daily.sunrise[1]}</h4>
@@ -60,7 +60,7 @@ const ExtendedCast = ({weatherData}) => {
                     <h4>🍃 Wind: <br /> {windHashmap.get(weatherData.daily.winddirection_10m_dominant[1])} at {weatherData.daily.windspeed_10m_max[1]}mph</h4>
                 </div>
                 <div className="Cast2">
-                    <h3>{weatherData.daily.time[2]}</h3>
+                    <div>{weatherData.daily.time[2]}</div>
                     <h4>{weatherCodeHashmap.get(weatherData.daily.weathercode[2])}</h4>
                     <h4>High: {weatherData.daily.temperature_2m_max[2]}°F  <br/>Low: {weatherData.daily.temperature_2m_min[2]}°F</h4>
                     <h4>🌅 Sunrise:<br /> {weatherData.daily.sunrise[2]}</h4>
@@ -68,7 +68,7 @@ const ExtendedCast = ({weatherData}) => {
                     <h4>🍃 Wind: <br /> {windHashmap.get(weatherData.daily.winddirection_10m_dominant[2])} at {weatherData.daily.windspeed_10m_max[2]}mph</h4>
                 </div>
                 <div className="Cast3">
-                    <h3>{weatherData.daily.time[3]}</h3>
+                    <div>{weatherData.daily.time[3]}</div>
                     <h4>{weatherCodeHashmap.get(weatherData.daily.weathercode[3])}</h4>
                     <h4>High: {weatherData.daily.temperature_2m_max[3]}°F  <br/>Low: {weatherData.daily.temperature_2m_min[3]}°F</h4>
                     <h4>🌅 Sunrise:<br /> {weatherData.daily.sunrise[3]}</h4>
@@ -76,7 +76,7 @@ const ExtendedCast = ({weatherData}) => {
                     <h4>🍃 Wind: <br /> {windHashmap.get(weatherData.daily.winddirection_10m_dominant[3])} at {weatherData.daily.windspeed_10m_max[3]}mph</h4>
                 </div>
                 <div className="Cast4">
-                    <h3>{weatherData.daily.time[4]}</h3>
+                    <div>{weatherData.daily.time[4]}</div>
                     <h4>{weatherCodeHashmap.get(weatherData.daily.weathercode[4])}</h4>
                     <h4>High: {weatherData.daily.temperature_2m_max[4]}°F  <br/>Low: {weatherData.daily.temperature_2m_min[4]}°F</h4>
                     <h4>🌅 Sunrise:<br /> {weatherData.daily.sunrise[4]}</h4>
@@ -84,7 +84,7 @@ const ExtendedCast = ({weatherData}) => {
                     <h4>🍃 Wind: <br /> {windHashmap.get(weatherData.daily.winddirection_10m_dominant[4])} at {weatherData.daily.windspeed_10m_max[4]}mph</h4>
                 </div>
                 <div className="Cast5">
-                    <h3>{weatherData.daily.time[5]}</h3>
+                    <div>{weatherData.daily.time[5]}</div>
                     <h4>{weatherCodeHashmap.get(weatherData.daily.weathercode[5])}</h4>
                     <h4>High: {weatherData.daily.temperature_2m_max[5]}°F  <br/>Low: {weatherData.daily.temperature_2m_min[5]}°F</h4>
                     <h4>🌅 Sunrise:<br /> {weatherData.daily.sunrise[5]}</h4>
@@ -92,7 +92,7 @@ const ExtendedCast = ({weatherData}) => {
                     <h4>🍃 Wind: <br /> {windHashmap.get(weatherData.daily.winddirection_10m_dominant[5])} at {weatherData.daily.windspeed_10m_max[5]}mph</h4>
                 </div>
                 <div className="Cast6">
-                <h3>{weatherData.daily.time[6]}</h3>
+                <div>{weatherData.daily.time[6]}</div>
                     <h4>{weatherCodeHashmap.get(weatherData.daily.weathercode[6])}</h4>
                     <h4>High: {weatherData.daily.temperature_2m_max[6]}°F  <br/>Low: {weatherData.daily.temperature_2m_min[6]}°F</h4>
                     <h4>🌅 Sunrise:<br /> {weatherData.daily.sunrise[6]}</h4>
