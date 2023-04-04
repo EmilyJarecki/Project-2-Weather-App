@@ -1,7 +1,16 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const WeeklyForecast = ({ weatherData }) => {
-  //defines weathercode
+    const [selectedDateIndex, setSelectedDateIndex] = useState(null);
+
+    function handleDateClick(index) {
+      if (selectedDateIndex === index) {
+        setSelectedDateIndex(null);
+      } else {
+        setSelectedDateIndex(index);
+      }
+    }
   let weatherCodeHashmap = new Map([
     [0, "Clear"],
     [1, "Partly Cloudy"],
@@ -36,33 +45,77 @@ const WeeklyForecast = ({ weatherData }) => {
   //provides wind speed and direction for the next 7 days:
   if (weatherData && weatherData.daily) {
     return (
-      <div className="ForecastContainer">
-        <Link to={`/weekly`} className="ForecastHeader">
-          <div className="ForecastHeader">
-            <div className="TitleOnForecast">Weekly Forecast</div>
-          </div>
-        </Link>
-        <div className="weatherForecast">
-          {[1, 2, 3, 4, 5, 6].map((index) => (
-            <div className={`day${index}`} key={`day${index}`}>
-              <div>
-                {new Date(weatherData.daily.time[index]).toLocaleDateString(
-                  "en-US",
-                  {
-                    weekday: "long",
-                    month: "short",
-                    day: "numeric",
-                  }
-                )}
-                <span className="Weathercode">
-                  {weatherCodeHashmap.get(weatherData.daily.weathercode[index])}
-                </span>
-              </div>
+        <div className="ForecastContainer">
+          <Link to={`/weekly`} className="ForecastHeader">
+            <div className="ForecastHeader">
+              <div className="TitleOnForecast">Weekly Forecast</div>
             </div>
-          ))}
+          </Link>
+          <div className="weatherForecast">
+            {[1, 2, 3, 4, 5, 6].map((index) => (
+              <div className="single-cast" key={`day${index}`}>
+                <div>
+                  <div
+                    className="nice-date"
+                    onClick={() => handleDateClick(index)}
+                  >
+                    {new Date(weatherData.daily.time[index]).toLocaleDateString(
+                      "en-US",
+                      {
+                        weekday: "long",
+                        month: "short",
+                        day: "numeric",
+                      }
+                    )}
+                  </div>
+                  {selectedDateIndex === index && (
+                    <div className="temp-details">
+                      <span className="Weathercode">
+                        {weatherCodeHashmap.get(weatherData.daily.weathercode[index])}
+                      </span>
+                      Low: {weatherData.daily.temperature_2m_min[index]}°F High:{" "}
+                      {weatherData.daily.temperature_2m_max[index]}°F
+                    </div>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
-    );
+      );
+    // return (
+    //   <div className="ForecastContainer">
+    //     <Link to={`/weekly`} className="ForecastHeader">
+    //       <div className="ForecastHeader">
+    //         <div className="TitleOnForecast">Weekly Forecast</div>
+    //       </div>
+    //     </Link>
+    //     <div className="weatherForecast">
+    //       {[1, 2, 3, 4, 5, 6].map((index) => (
+    //         <div className="single-cast" key={`day${index}`}>
+    //           <div>
+    //             <div className="nice-date">
+    //               {new Date(weatherData.daily.time[index]).toLocaleDateString(
+    //                 "en-US",
+    //                 {
+    //                   weekday: "long",
+    //                   month: "short",
+    //                   day: "numeric",
+    //                 }
+    //               )}
+    //             </div>
+    //             <br />
+    //             <span className="Weathercode">
+    //               {weatherCodeHashmap.get(weatherData.daily.weathercode[index])}
+    //             </span>
+    //             Low: {weatherData.daily.temperature_2m_min[index]}°F High:{" "}
+    //             {weatherData.daily.temperature_2m_max[index]}°F
+    //           </div>
+    //         </div>
+    //       ))}
+    //     </div>
+    //   </div>
+    // );
   }
 };
 
