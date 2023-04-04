@@ -72,10 +72,11 @@ const WeeklyForecast = ({ weatherData }) => {
 
                   {selectedDateIndex === index && (
                     <div className="temp-details">
-                      <span className="Weathercode">
-                        {weatherCodeHashmap.get(weatherData.daily.weathercode[index])}
-                        {weatherData.daily.precipitation_probability_max[index]}% chance for precipitation
-                      </span>
+                      <div className="Weathercode">
+                        <span>{weatherCodeHashmap.get(weatherData.daily.weathercode[index])}</span>
+                        <span>{weatherData.daily.precipitation_probability_max[index]}% chance for precipitation</span>
+                        <span>{weatherData.daily.uv_index_max[index]}UV index</span>
+                      </div>
                       Low: {weatherData.daily.temperature_2m_min[index]}°F High:{" "}
                       {weatherData.daily.temperature_2m_max[index]}°F
                     </div>

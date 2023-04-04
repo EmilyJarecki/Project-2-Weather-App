@@ -121,7 +121,7 @@ const Sidebar = ({ weatherData }) => {
                   <span>{weatherData.daily.temperature_2m_max[0]}°F</span>
                 </div>                  
                 <span>{weatherData.daily.precipitation_probability_max[0]}%</span>
-
+                  <span>{weatherData.daily.uv_index_max[0]}UV index</span>
               </div>
             )}
             <div className={state ? "button-clicked" : "button"} onClick={toggle}></div>
