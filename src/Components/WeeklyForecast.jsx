@@ -46,11 +46,11 @@ const WeeklyForecast = ({ weatherData }) => {
   if (weatherData && weatherData.daily) {
     return (
         <div className="ForecastContainer">
-          <Link to={`/weekly`} className="ForecastHeader">
+          {/* <Link to={`/weekly`} className="ForecastHeader">
             <div className="ForecastHeader">
               <div className="TitleOnForecast">Weekly Forecast</div>
             </div>
-          </Link>
+          </Link> */}
           <div className="weatherForecast">
             {[1, 2, 3, 4, 5, 6].map((index) => (
               <div className="single-cast" key={`day${index}`}>
@@ -67,11 +67,14 @@ const WeeklyForecast = ({ weatherData }) => {
                         day: "numeric",
                       }
                     )}
-                  </div>
+                  </div>                    
+                  
+
                   {selectedDateIndex === index && (
                     <div className="temp-details">
                       <span className="Weathercode">
                         {weatherCodeHashmap.get(weatherData.daily.weathercode[index])}
+                        {weatherData.daily.precipitation_probability_max[index]}% chance for precipitation
                       </span>
                       Low: {weatherData.daily.temperature_2m_min[index]}°F High:{" "}
                       {weatherData.daily.temperature_2m_max[index]}°F

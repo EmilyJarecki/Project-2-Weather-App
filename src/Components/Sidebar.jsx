@@ -119,7 +119,9 @@ const Sidebar = ({ weatherData }) => {
                 <br />
                 <div className="low-high-int">
                   <span>{weatherData.daily.temperature_2m_max[0]}°F</span>
-                </div>
+                </div>                  
+                <span>{weatherData.daily.precipitation_probability_max[0]}%</span>
+
               </div>
             )}
             <div className={state ? "button-clicked" : "button"} onClick={toggle}></div>
