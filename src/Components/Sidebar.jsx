@@ -1,6 +1,19 @@
 import LiveClock from "react-live-clock";
+import { useState, useEffect } from "react";
 
 const Sidebar = ({ weatherData }) => {
+  const [state, setState] = useState(false);
+  const [todayDate, setTodayDate] = useState("");
+
+  useEffect(() => {
+    const today = new Date();
+    const formattedDate = today.toLocaleDateString("en-US", {
+      month: "long",
+      day: "numeric"
+    });
+    setTodayDate(formattedDate);
+  }, []);
+
   let today = new Date();
   let day = today.getDay();
   let dayList = [
@@ -12,7 +25,9 @@ const Sidebar = ({ weatherData }) => {
     "Friday",
     "Saturday",
   ];
-
+  const toggle = () => {
+    setState(!state);
+  };
   //defines weathercode:
   let weatherCodeHashmap = new Map([
     [0, "Clear"],
@@ -59,6 +74,7 @@ const Sidebar = ({ weatherData }) => {
         <div className="sidebar">
           <div className="date">
             <div className="today">
+            <div>{todayDate}</div>
               <div className="">{dayList[day]}</div>
               <LiveClock
                 className="live-clock"
@@ -72,23 +88,41 @@ const Sidebar = ({ weatherData }) => {
               {weatherCodeHashmap.get(weatherData.current_weather.weathercode)}
             </div>
           </div>
-            <div className="curr-temp-div">
-              <span className="curr-temp-title">Current Temperature</span> <br />
-              <span className="curr-temp-int">{weatherData.current_weather.temperature}°F</span>
+          <div className="curr-temp-div">
+            <span className="curr-temp-title">Current Temperature</span>
+            <span className="curr-temp-int">
+              {weatherData.current_weather.temperature}°F
+            </span>
           </div>
           <div className="feelsLike">
-                <span className="feels-like-title">Feels Like</span>
-               <span className="feels-like-int">{weatherData.hourly.apparent_temperature[0]}°F</span>
+            <span className="feels-like-title">Feels Like</span>
+            <span className="feels-like-int">
+              {weatherData.hourly.apparent_temperature[0]}°F
+            </span>
           </div>
           <div className="maxAndMinTemp">
-              <span className="">
-                High: {weatherData.daily.temperature_2m_max[0]}°F{" "}
-              </span>
-              <br />
-              <span className="">
-                Low: {weatherData.daily.temperature_2m_min[0]}°F
-              </span>
-              <button>Choose Time</button>
+            {state ? (
+              <div className="">
+                <div className="low-high">
+                  <span>Low</span>
+                </div>
+                <br />
+                <div className="low-high-int">
+                  <span>{weatherData.daily.temperature_2m_min[0]}°F</span>
+                </div>
+              </div>
+            ) : (
+              <div className="">
+                <div className="low-high">
+                  <span>High</span>
+                </div>
+                <br />
+                <div className="low-high-int">
+                  <span>{weatherData.daily.temperature_2m_max[0]}°F</span>
+                </div>
+              </div>
+            )}
+            <div className={state ? "button-clicked" : "button"} onClick={toggle}></div>
           </div>
         </div>
       </div>
