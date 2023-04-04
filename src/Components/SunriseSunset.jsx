@@ -15,13 +15,30 @@ const SunriseSunset = ({ weatherData }) => {
         <div className="toggle">
           {state ? (
             <div className="Sunset">
-              <div className="SunWords">Sunset</div><br />
-              <div className="SunTime">{weatherData.daily.sunset[0]}</div>
+              <div className="SunWords">Sunset</div>
+              <br />
+              <div className="SunTime">
+                {new Date(weatherData.daily.sunset[0]).toLocaleString("en-US", {
+                  hour: "numeric",
+                  minute: "numeric",
+                  hour12: true,
+                })}
+              </div>{" "}
             </div>
           ) : (
             <div className="Sunrise">
-              <div className="SunWords">Sunrise: </div><br />
-              <div className="SunTime">{weatherData.daily.sunrise[0]}</div>
+              <div className="SunWords">Sunrise: </div>
+              <br />
+              <div className="SunTime">
+                {new Date(weatherData.daily.sunrise[0]).toLocaleString(
+                  "en-US",
+                  {
+                    hour: "numeric",
+                    minute: "numeric",
+                    hour12: true,
+                  }
+                )}
+              </div>
             </div>
           )}
           <button onClick={toggle}>Toggle</button>
